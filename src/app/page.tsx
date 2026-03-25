@@ -21,11 +21,14 @@ export default function LoginPage() {
       
       const isTeacher = email.toLowerCase().includes('teacher');
       const isParent = email.toLowerCase().includes('parent');
+      const isAdmin = email.toLowerCase().includes('admin');
 
       // Reset state after showing success
       setTimeout(() => {
         setIsSuccess(false);
-        if (isTeacher) {
+        if (isAdmin) {
+          router.push('/admin');
+        } else if (isTeacher) {
           router.push('/teacher');
         } else if (isParent) {
           router.push('/parent');

@@ -170,6 +170,46 @@ export default function ParentDashboardPage() {
             </div>
           </div>
 
+          {/* Announcements */}
+          <div className="info-panel" style={{ padding: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a365d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#111827', margin: 0 }}>School Announcements</h3>
+            </div>
+
+            {[
+              { title: 'Annual Sports Day — March 28', content: 'All students are expected to participate in the Annual Sports Day. Parents are welcome to attend.', date: 'Mar 22', priority: 'high' },
+              { title: 'Parent-Teacher Meeting', content: 'PTM scheduled for April 5. Parents are requested to attend between 10 AM – 1 PM.', date: 'Mar 20', priority: 'normal' },
+              { title: 'Fee Reminder — Q4 Due', content: 'Quarterly fees for Q4 are due by March 31. Late fees will apply after the deadline.', date: 'Mar 10', priority: 'high' },
+            ].map((ann, i) => (
+              <div key={i} style={{
+                padding: '0.85rem 1.25rem',
+                backgroundColor: '#F9FAFB',
+                borderRadius: '10px',
+                marginBottom: '0.75rem',
+                borderLeft: ann.priority === 'high' ? '3px solid #ef4444' : '3px solid #e2e8f0',
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ fontWeight: 600, color: '#0f172a', fontSize: '0.875rem' }}>{ann.title}</span>
+                    {ann.priority === 'high' && (
+                      <span style={{
+                        backgroundColor: '#fee2e2', color: '#ef4444',
+                        padding: '0.125rem 0.5rem', borderRadius: '999px',
+                        fontSize: '0.6875rem', fontWeight: 600
+                      }}>IMPORTANT</span>
+                    )}
+                  </div>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', whiteSpace: 'nowrap' }}>{ann.date}</span>
+                </div>
+                <p style={{ fontSize: '0.8125rem', color: '#64748b', margin: 0, lineHeight: 1.5 }}>{ann.content}</p>
+              </div>
+            ))}
+          </div>
+
         </div>
       </main>
     </div>

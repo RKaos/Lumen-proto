@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Plus_Jakarta_Sans, Lora } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' });
+const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-inter' });
+const lora = Lora({ subsets: ['latin'], variable: '--font-playfair' });
 
 export const metadata: Metadata = {
   title: 'Lumen',
@@ -23,7 +23,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.jpeg?v=4" type="image/jpeg" />
       </head>
-      <body className={`${inter.variable} ${playfair.variable}`}>
+      <body className={`${jakarta.variable} ${lora.variable}`}>
         {children}
       </body>
     </html>

@@ -127,6 +127,40 @@ export default function TeacherProfilePage() {
             </div>
           </div>
 
+          {/* Announcements */}
+          <div className="info-panel" style={{ marginTop: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a365d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <h2 className="info-panel-title" style={{ margin: 0 }}>School Announcements</h2>
+            </div>
+
+            {[
+              { title: 'Annual Sports Day — March 28', content: 'All students are expected to participate. Teachers are requested to coordinate house events.', date: 'Mar 22', priority: 'high' },
+              { title: 'Parent-Teacher Meeting', content: 'PTM scheduled for April 5. Teachers are requested to prepare progress reports by April 3.', date: 'Mar 20', priority: 'normal' },
+              { title: 'Holiday Notice — Holi Festival', content: 'School will remain closed on March 14 on account of Holi. Classes resume March 15.', date: 'Mar 12', priority: 'normal' },
+            ].map((ann, i) => (
+              <div key={i} className="info-row" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '0.375rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ fontWeight: 600, color: '#0f172a', fontSize: '0.9rem' }}>{ann.title}</span>
+                    {ann.priority === 'high' && (
+                      <span style={{
+                        backgroundColor: '#fee2e2', color: '#ef4444',
+                        padding: '0.125rem 0.5rem', borderRadius: '999px',
+                        fontSize: '0.6875rem', fontWeight: 600
+                      }}>IMPORTANT</span>
+                    )}
+                  </div>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', whiteSpace: 'nowrap' }}>{ann.date}</span>
+                </div>
+                <p style={{ fontSize: '0.8125rem', color: '#64748b', margin: 0, lineHeight: 1.5 }}>{ann.content}</p>
+              </div>
+            ))}
+          </div>
+
         </div>
       </main>
     </div>

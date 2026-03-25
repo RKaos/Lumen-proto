@@ -7,7 +7,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const isTeacher = pathname.startsWith('/teacher');
   const isParent = pathname.startsWith('/parent');
-  const avatar = isTeacher ? 'DS' : (isParent ? 'SJ' : 'AJ');
+  const isAdmin = pathname.startsWith('/admin');
+  const avatar = isAdmin ? 'AD' : isTeacher ? 'DS' : (isParent ? 'SJ' : 'AJ');
 
   return (
     <nav className="top-nav">
